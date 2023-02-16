@@ -8,34 +8,103 @@
     <title>Document</title>
     
     <style>
+
+        body {
+            background-color: #2b2b2b;
+        }
+
+        #contenedor {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+
+        #board {
+            width: 40%;
+            margin-top: 5%;
+            margin-left: 10%;
+        }
+
+        #options {
+            width: 40%;
+            margin-top: 5%;
+            margin-right: 10%;
+        }
+
+        #div_button {
+            text-align: center;
+        }
+
+
+        .button {
+            margin: 25px;
+            background: #7FA650;
+            border: 1px solid #7FA650;
+            border-radius: 6px;
+            box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+            box-sizing: border-box;
+            color: #FFFFFF;
+            cursor: pointer;
+            display: inline-block;
+            font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            line-height: 16px;
+            min-height: 40px;
+            outline: 0;
+            padding: 12px 14px;
+            text-align: center;
+            text-rendering: geometricprecision;
+            text-transform: none;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            vertical-align: middle;
+        }
+
+        .button:hover, .button:active {
+            background-color: initial;
+            background-position: 0 0;
+            color: #7FA650;
+        }
+
+        .button:active {
+            opacity: .5;
+        }
+
+        #div_contador {
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding-top: 6px;
+            font-size: 32px;
+            font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+            font-weight: 800;
+            margin-bottom: 5%;
+            letter-spacing: 5px;
+        }
+
         table{
-            border:1px solid;
+            align-content: center;
             border-collapse: collapse;
-            
+            border: solid 2px #000000;
+            background-color: whitesmoke;
         }
         tr{
             border:1px solid;
             border-collapse: collapse;
-            
         }
         td{
             border:1px solid;
             border-collapse: collapse;
-            width:50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
         }
         tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd){
-            background-color: black;
-            
+            background-color: #2b2b2b;
         }
         tr:nth-child(odd) td:nth-child(even), tr:nth-child(odd) td:nth-child(even){
-            background-color: white;
-            
+            background-color: whitesmoke;
         }
-        div  {
-            font-size: xx-large;
-        }
-           
 
     </style>
 
@@ -48,7 +117,7 @@
             if((window.getComputedStyle(queen).backgroundImage)=="none" ) {
                 if(contador != 8){
                     contador++; 
-                    queen.style="background-image:url(./Queen.png); background-size: cover;";
+                    queen.style="background-image:url(./assets/Queen.png); background-size: cover;";
                 } 
             }
             else {
@@ -72,7 +141,7 @@
                 for (let i = 0; i < celdas.length; i++) {
 
 
-                    if(celdas[i].style.backgroundImage=="url(\"./Queen.png\")") {
+                    if(celdas[i].style.backgroundImage=="url(\"./assets/Queen.png\")") {
 
                         queens[countqueens] = i+1;
 
@@ -135,135 +204,148 @@
         function solucion1(){
             reiniciar(8);
             var celdas=document.getElementById("tabla_ajedrez");
-            celdas.rows[0].cells[4].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[1].cells[1].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[2].cells[3].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[3].cells[6].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[4].cells[2].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[5].cells[7].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[6].cells[5].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[7].cells[0].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[0].cells[4].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[1].cells[1].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[2].cells[3].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[3].cells[6].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[4].cells[2].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[5].cells[7].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[6].cells[5].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[7].cells[0].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
             
         }
 
         function solucion2(){
             reiniciar(8);
             var celdas=document.getElementById("tabla_ajedrez");
-            celdas.rows[0].cells[4].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[1].cells[2].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[2].cells[7].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[3].cells[3].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[4].cells[6].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[5].cells[0].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[6].cells[5].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
-            celdas.rows[7].cells[1].style="background-image:url(./Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[0].cells[4].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[1].cells[2].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[2].cells[7].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[3].cells[3].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[4].cells[6].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[5].cells[0].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[6].cells[5].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
+            celdas.rows[7].cells[1].style="background-image:url(./assets/Queen.png); background-repeat:no-repeat; background-size: cover;";
             
         }
+
     </script>
+
 </head>
 
 <body>
-    
-    <table id="tabla_ajedrez">
-        <tr>
-            <td onclick="celdaclick(this)"> </td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
 
-        <tr>
-            
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-    </table>
-    <div id="div_contador">
-        Reinas colocadas: 0
+    <div id="contenedor">
+        <div id="board">
+            <table id="tabla_ajedrez">
+                <tr>
+                    <td onclick="celdaclick(this)"> </td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+        
+                <tr>
+                    
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                <tr>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                    <td onclick="celdaclick(this)"></td>
+                </tr>
+                </table>
+            <div id="div_button">
+                <button class="button" onclick="solucion1()">
+                    Solución 1
+                </button>
+                <button class="button" onclick="solucion2()">
+                    Solución 2
+                </button>
+            </div>
+        </div>
+        <div id="options">
+            <div id="div_contador">
+                Reinas colocadas: 0
+            </div>
+            <div id="div_button">
+                <button class="button" onclick="simulacion()">
+                    Simulación
+                </button>
+            </div>
+            <div id="div_button">
+                <button class="button" onclick="reiniciar(0)">
+                    Reiniciar
+                </button>
+            </div>
+        </div>
     </div>
-    <button onclick="simulacion()">
-        Simulación
-    </button>
-    <button onclick="reiniciar(0)">
-        Reiniciar
-    </button>
-    <button onclick="solucion1()">
-        Solución 1
-    </button>
-    <button onclick="solucion2()">
-        Solución 2
-    </button>
-
 </body>
 
 </html>
